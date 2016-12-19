@@ -1,7 +1,90 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
 
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns="http://java.sun.com/xml/ns/javaee"
+			xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+			xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+			version="3.0">
+			
+	<display-name>Archetype Created Web Application</display-name>
+
+	<!-- http://devbox.tistory.com/entry/Spring-webxml-%EA%B8%B0%EB%B3%B8-%EC%84%A4%EC%A0%95 
+	공통빈 설정 파일은 서블릿 리스너로 등록된 org.springframework.web.context.ContextLoaderListener로 로딩해서 ApplicationContext을 만들고, web layer의 빈설정 파일은 DispatcherServlet이 로딩해서 WebApplicationContext을 만든다. 
+	 -->
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:spring-dummy.xml
+		</param-value>
+	</context-param>
+
+	<servlet>
+		<servlet-name>myProject</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:spring-myProject.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>myProject</servlet-name>
+		<!-- http://lng1982.tistory.com/97 REST 방식의 웹 어플리케이션을 구성하기 위한 url-pattern은 / 로 설정해야 한다. -->
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+<!-- 	<filter>
+		<filter-name>SessionFilter</filter-name>
+		<filter-class>kr.co.easymanual.filter.SessionFilter</filter-class>
+	</filter>
+ -->	
+	<!-- 단지 request에 대해서만 UTF-8로 인코딩한다. -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<!--  아래 설정을 하면 response 헤더에 UTF-8로 설정된다. -->
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- 
+	<filter-mapping>
+		<filter-name>SessionFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	-->
+	
+	<!--
+	<error-page>
+		<error-code>500</error-code>
+		<location>/WEB-INF/jsp/error.jsp</location>	
+	</error-page>
+	 
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/jsp/error.jsp</location>	
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/WEB-INF/jsp/error.jsp</location>
+	</error-page>
+	-->
 </web-app>
