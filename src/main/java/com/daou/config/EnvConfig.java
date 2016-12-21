@@ -50,9 +50,9 @@ public class EnvConfig {
 		Properties jpaProperties = new Properties();
 		// http://docs.jboss.org/hibernate/orm/4.3/manual/en-US/html_single/#configuration-optional-dialects 지원가능한 방언 리스트
 
-		jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQL9Dialect");
+		//jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQL9Dialect");
 
-		// jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
+		jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 
 		// 하이버네이트가 실행한 SQL 쿼리를 출력한다.
 		jpaProperties.put("hibernate.show_sql", true);
