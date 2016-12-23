@@ -30,6 +30,7 @@ public class EnvConfig {
 	@Value("${datasource.url}") private String url;
 	@Value("${datasource.username}") private String userName;
 	@Value("${datasource.password}") private String password;
+	@Value("${packages.to.scan}") private String packagesToScan;
 
 	@Bean(destroyMethod = "close")
 	public DataSource dataSource() {
@@ -66,16 +67,19 @@ public class EnvConfig {
 		// JPA 표준에 맞춘 새로운 키 생성 전략을 사용한다.
 		jpaProperties.put("hibernate.id.new_generator_mappings", true);
 
+		//
 		jpaProperties.put("hibernate.hbm2ddl.auto", "create");
 
 		LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 		localContainerEntityManagerFactoryBean.setDataSource(this.dataSource());
-		localContainerEntityManagerFactoryBean.setPackagesToScan("com.daou");
+		localContainerEntityManagerFactoryBean.setPackagesToScan(this.packagesToScan);
 		localContainerEntityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		localContainerEntityManagerFactoryBean.setJpaProperties(jpaProperties);
 
 		return localContainerEntityManagerFactoryBean;
 	}
+
+
 
 	@Bean
 	public PlatformTransactionManager transactionManager() {
