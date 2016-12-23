@@ -62,6 +62,10 @@ public class EnvConfig {
 		// 쿼리를 출력할 때 주석도 함께 출력한다.
 		jpaProperties.put("hibernate.use_sql_comments", true);
 
+		// 이 클래스는 테이블 명이나 컬럼 명이 생략되면 자바의 카멜 표기법을 테이블의 언더스코어 표기법으로 매핑한다.
+		// -> 설정이 안 먹힌다.
+		jpaProperties.put("hibernate.ejb.naming_strategy", "org.hibernate.cfg.ImprovedNamingStrategy");
+
 		// JPA 표준에 맞춘 새로운 키 생성 전략을 사용한다.
 		jpaProperties.put("hibernate.id.new_generator_mappings", true);
 
