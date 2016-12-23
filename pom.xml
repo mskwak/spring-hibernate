@@ -92,6 +92,13 @@
 	    <version>5.2.5.Final</version>
 	</dependency>
 
+	<!-- javax.validation.ValidationException: Unable to create a Configuration, because no Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath. 대응에 필요하다. -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-validator</artifactId>
+		<version>5.3.4.Final</version>
+	</dependency>
+
 	<!-- http://stackoverflow.com/questions/11376247/using-jpa-maven-and-tomcat-but-getting-java-lang-noclassdeffounderror-javax-p
 	Caused by: java.lang.ClassNotFoundException: javax.persistence.EntityManagerFactory 에러에 대응하기 위해 필요하다. -->
 	<dependency>
