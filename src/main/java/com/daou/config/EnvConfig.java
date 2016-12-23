@@ -49,10 +49,8 @@ public class EnvConfig {
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		Properties jpaProperties = new Properties();
-		// http://docs.jboss.org/hibernate/orm/4.3/manual/en-US/html_single/#configuration-optional-dialects 지원가능한 방언 리스트
-
+		// http://docs.jboss.org/hibernate/orm/4.3/manual/en-US/html_single/#configuration-optional-dialects 지원 가능한 방언 리스트
 		//jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQL9Dialect");
-
 		jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 
 		// 하이버네이트가 실행한 SQL 쿼리를 출력한다.
@@ -67,7 +65,12 @@ public class EnvConfig {
 		// JPA 표준에 맞춘 새로운 키 생성 전략을 사용한다.
 		jpaProperties.put("hibernate.id.new_generator_mappings", true);
 
-		//
+		// p.127 자바 ORM 표준 JPA 프로그래밍
+		// create: 기존 테이블을 삭제하고 새로 생성한다. DROP + CREATE
+		// create-drop: 애플리케이션을 종료할 때 생성한 DDL을 제거한다. DROP + CREATE + DROP
+		// update: 데이터베이스 테이블과 엔티티 매핑정보를 비교해서 변경 사항만 수정한다.
+		// validate: 데이터베이스 테이블과 엔티티 매핑정보를 비교해서 차이가 있으면 경고를 남기고 애플리케이션을 실행하지 않는다. 이 설정은 DDL을 수정하지 않는다.
+		// none: 자동 생성기능을 사용하지 않는다.
 		jpaProperties.put("hibernate.hbm2ddl.auto", "create");
 
 		LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
@@ -78,8 +81,6 @@ public class EnvConfig {
 
 		return localContainerEntityManagerFactoryBean;
 	}
-
-
 
 	@Bean
 	public PlatformTransactionManager transactionManager() {
