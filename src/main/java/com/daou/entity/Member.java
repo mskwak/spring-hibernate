@@ -8,6 +8,8 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -39,4 +41,7 @@ public class Member {
 	@Column(name="updated_time")
 	private Date updatedTime;
 
+	@OneToOne
+	@JoinColumn(name="member_id")
+	private MemberAdditionalInfomation memberAdditionalInfomation;
 }
