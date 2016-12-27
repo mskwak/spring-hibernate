@@ -1,34 +1,42 @@
 package com.daou.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.daou.type.UserStatus;
 
 @Entity
-//@Table(name="MEMBER")
+@Table(name="member")
 public class Member {
-
 	@Id
 	@GeneratedValue
-	private Long id;
+	private long id;
 
-	@Column
+	@Column(name="email_id", nullable=false, length=1024)
+	private String emailId;
+
+	@Column(name="user_name")
 	private String userName;
 
-	public Long getId() {
-		return this.id;
-	}
+	@Enumerated(EnumType.STRING)
+	@Column(name="user_status")
+	private UserStatus userStatus;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="created_time")
+	private Date createdTime;
 
-	public String getUserName() {
-		return this.userName;
-	}
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="updated_time")
+	private Date updatedTime;
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
 }

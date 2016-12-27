@@ -116,12 +116,21 @@
 	</dependency>
 
 	<!-- http://stackoverflow.com/questions/11376247/using-jpa-maven-and-tomcat-but-getting-java-lang-noclassdeffounderror-javax-p
-	Caused by: java.lang.ClassNotFoundException: javax.persistence.EntityManagerFactory 에러에 대응하기 위해 필요하다. -->
+	Caused by: java.lang.ClassNotFoundException: javax.persistence.EntityManagerFactory 에러에 대응하기 위해 필요하다.
 	<dependency>
 	    <groupId>org.hibernate.javax.persistence</groupId>
 	    <artifactId>hibernate-jpa-2.0-api</artifactId>
 	    <version>1.0.1.Final</version>
+	</dependency> -->
+
+	<!-- Caused by: java.lang.NoSuchMethodError: javax.persistence.Table.indexes()[Ljavax/persistence/Index; 에러에 대응하기 위해 필요하다.
+	hibernate-jpa-2.0-api 를 사용하면  바로 위의 에러가 발생한다. -->
+	<dependency>
+		<groupId>org.hibernate.javax.persistence</groupId>
+		<artifactId>hibernate-jpa-2.1-api</artifactId>
+		<version>1.0.0.Final</version>
 	</dependency>
+
     
 	<!-- Caused by: java.lang.NoClassDefFoundError: javax/persistence/criteria/CriteriaDelete 에러에  대응하기 위해 필요하다. 
 	<dependency>
@@ -237,6 +246,16 @@
 		<version>1.9.13</version>
 	</dependency>
  	-->
+
+    <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    lombok
+     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+	<dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+		<version>1.16.12</version>
+	</dependency>
+
 	
 	<!-- spring 4.3.2 사용할 때 필요 -->
 	<dependency>
