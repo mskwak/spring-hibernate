@@ -11,8 +11,9 @@ import javax.persistence.Table;
 public class MemberAdditionalInfomation {
 	@Id
 	@GeneratedValue
+	@Column(name="member_id")
 	private long id;
 
-	@Column(name="member_id")
-	private String memberId;
+	@Column(name="home_address")
+	private String homeAddress;
 }
