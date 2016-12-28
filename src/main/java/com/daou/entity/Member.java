@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -41,7 +42,11 @@ public class Member {
 	@Column(name="updated_time")
 	private Date updatedTime;
 
-	@OneToOne
+	/*@OneToOne
 	@JoinColumn(name="member_id")
-	private MemberAdditionalInfomation memberAdditionalInfomation;
+	private MemberAdditionalInfomation memberAdditionalInfomation;*/
+	
+	@ManyToOne
+	@JoinColumn(name="member_group_id")
+	private MemberGroup memberGroup;
 }
