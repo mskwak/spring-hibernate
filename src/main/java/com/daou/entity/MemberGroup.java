@@ -23,3 +23,4 @@ public class MemberGroup {
 	@OneToMany(mappedBy="memberGroup")
 	private List<Member> memberList = new ArrayList<Member>();
 }
+
