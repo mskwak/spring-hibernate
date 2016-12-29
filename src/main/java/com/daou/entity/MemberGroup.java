@@ -20,6 +20,7 @@ public class MemberGroup {
 	@Column(name="description")
 	private String description;
 
+	// 이 테이블(MemberGroup) 에서는 PK가 다른 테이블(Member)에서 FK로 사용된다. PK -> FK (One -> Many)
 	@OneToMany(mappedBy="memberGroup")
 	private List<Member> memberList = new ArrayList<Member>();
 }

@@ -17,8 +17,24 @@ public class MemberAdditionalInfomation {
 
 	@Column(name="home_address")
 	private String homeAddress;
-	
+
 	@OneToOne
 	@JoinColumn(name="member_id")
 	private Member member;
+
+	public String getHomeAddress() {
+		return this.homeAddress;
+	}
+
+	public void setHomeAddress(String homeAddress) {
+		this.homeAddress = homeAddress;
+	}
+
+	public Member getMember() {
+		return this.member;
+	}
+
+	public void setMember(Member member) {
+		this.member = member;
+	}
 }
