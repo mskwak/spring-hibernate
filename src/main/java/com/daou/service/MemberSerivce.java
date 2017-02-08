@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.daou.entity.Member;
-import com.daou.entity.MemberAdditionalInfomation;
 import com.daou.repository.MemberRepository;
 import com.daou.type.UserStatus;
 
@@ -24,10 +23,6 @@ public class MemberSerivce {
 		member.setEmailId("mskw@daou.co.kr");
 		member.setUserName("곽면순");
 		member.setUserStatus(UserStatus.ENABLE);
-
-		MemberAdditionalInfomation memberAdditionalInfomation = new MemberAdditionalInfomation();
-		memberAdditionalInfomation.setHomeAddress("노원구 월계동");
-		memberAdditionalInfomation.setMember(member);
 
 		this.memberRepository.save(member);
 	}

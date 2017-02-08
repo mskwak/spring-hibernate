@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="member_group") // 테이블 이름을 group로 쓰면 안된다.
-public class MemberGroup {
+public class Group {
 	@Id
 	@GeneratedValue
 	private long id;
