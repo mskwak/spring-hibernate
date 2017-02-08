@@ -1,4 +1,4 @@
-package com.daou.entity;
+package com.hangugi.entity;
 
 import java.util.ArrayList;
 import java.util.List;

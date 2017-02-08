@@ -1,4 +1,4 @@
-package com.daou.config;
+package com.hangugi.config;
 
 import java.util.Properties;
 
@@ -20,9 +20,9 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan("com.daou")
+@ComponentScan("com.hangugi")
 @Lazy
-@EnableJpaRepositories(basePackages="com.daou.repository")
+@EnableJpaRepositories(basePackages="com.hangugi.repository")
 @EnableTransactionManagement
 @PropertySources({
 	@PropertySource("classpath:hibernate-basic.properties")

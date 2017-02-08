@@ -22,7 +22,7 @@
 	<context:annotation-config />
 	<mvc:annotation-driven />
 	<mvc:default-servlet-handler/>
-	<context:component-scan base-package="com.daou" />
+	<context:component-scan base-package="com.hangugi" />
 	<!-- 아래 설정은 @Transactional 어노테이션이 적용된 스프링 빈에 실제로 트랜잭션을 적용하기 위한 설정이지만, @EnableTransactionManagement 이 선언되어 있으면 필요치 않다. -->
 	<!-- <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />  -->
 	<!-- <tx:annotation-driven proxy-target-class="true" /> -->
@@ -31,7 +31,7 @@
 	<import resource="classpath*:spring-multipartResolver.xml"/>
 	
 	<!-- https://objectpartners.com/2010/08/23/gaining-access-to-the-spring-context-in-non-spring-managed-classes/ -->
-	<bean id="springBean" class="com.daou.utils.SpringBean" />
+	<bean id="springBean" class="com.hangugi.utils.SpringBean" />
 
 	<!-- <bean id="messageConverter" ~~ 는 @ResponseBody 를 사용하기 위한 설정이다. -->
 	<!-- pom.xml에 <artifactId>gson</artifactId> 설정 필요

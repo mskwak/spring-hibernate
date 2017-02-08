@@ -1,4 +1,4 @@
-package com.daou.type;
+package com.hangugi.type;
 
 public enum UserStatus {
 	ENABLE, DISABLE

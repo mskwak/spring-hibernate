@@ -1,4 +1,4 @@
-package com.daou.entity;
+package com.hangugi.entity;
 
 import java.util.Date;
 
@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.daou.type.UserStatus;
+import com.hangugi.type.UserStatus;
 
 import lombok.Data;
 

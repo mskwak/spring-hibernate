@@ -1,4 +1,4 @@
-package com.daou.service;
+package com.hangugi.service;
 
 import java.util.Date;
 
@@ -7,9 +7,9 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.daou.entity.Member;
-import com.daou.repository.MemberRepository;
-import com.daou.type.UserStatus;
+import com.hangugi.entity.Member;
+import com.hangugi.repository.MemberRepository;
+import com.hangugi.type.UserStatus;
 
 @Service
 public class MemberSerivce {
