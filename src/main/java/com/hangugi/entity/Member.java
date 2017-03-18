@@ -45,6 +45,7 @@ public class Member {
 	private Date updatedTime;
 
 	// 이 테이블(Member)의 PK들(Many)이 하나의 FK(One)을 갖는다.
+	// 이 테이블의(Member) uniq 하게 존재하는 Id들(Many)이 Group 테이블에 존재하는 member_group_id (One) 을  FK로 가질 수 있다.
 	@ManyToOne
 	@JoinColumn(name="member_group_id")
 	private Group memberGroup;
